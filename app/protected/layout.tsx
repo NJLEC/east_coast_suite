@@ -16,7 +16,7 @@ export default function ProtectedLayout({
         <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
           <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
             <div className="flex gap-5 items-center font-semibold">
-              <Link href={"/"}>Next.js Supabase Starter</Link>
+              <Link href={"/"}>East Coast Suite</Link>
               <div className="flex items-center gap-2">
                 <DeployButton />
               </div>
@@ -24,6 +24,16 @@ export default function ProtectedLayout({
             {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
           </div>
         </nav>
+        {/* Division Navigation */}
+        <div className="w-full border-b border-b-foreground/10">
+          <div className="max-w-5xl mx-auto px-5 py-3 flex gap-4 text-sm">
+            <Link className="hover:underline" href={{ pathname: "/protected", query: { division: "installation" } }}>Installation & Trucking</Link>
+            <span className="text-foreground/30">|</span>
+            <Link className="hover:underline" href={{ pathname: "/protected", query: { division: "sales" } }}>Sales (New & Preowned)</Link>
+            <span className="text-foreground/30">|</span>
+            <Link className="hover:underline" href={{ pathname: "/protected", query: { division: "manufacturing" } }}>Manufacturing</Link>
+          </div>
+        </div>
         <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
           {children}
         </div>
